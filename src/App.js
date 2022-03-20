@@ -7,11 +7,13 @@ import Products from "./pages/Products";
 import Product from "./pages/Product";
 import UserProfile from "./pages/UserProfile";
 import Login from "./pages/Login";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const user = true;
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
