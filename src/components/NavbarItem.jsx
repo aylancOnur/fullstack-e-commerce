@@ -12,7 +12,7 @@ const NavbarItem = ({
     <li className="relative">
       <Link
         to="/"
-        className="flex w-full h-full px-4 py-2  font-medium text-gray-700 hover:bg-white hover:text-orange-500 transition-all transition-duration: 150ms"
+        className="flex border-l-2 border-l-gray-200 w-full h-full text-center px-4 py-2  font-medium text-sm text-gray-700 hover:bg-white hover:text-orange-500 transition-all transition-duration: 150ms"
         onMouseEnter={() => handleClick(menuItem.id)}
       >
         {menuItem.title}

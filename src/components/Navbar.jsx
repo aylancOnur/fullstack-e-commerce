@@ -92,7 +92,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-100">
       {/* CONTAINER */}
-      <div className="container px-4 flex flex-wrap py-2 mx-auto">
+      <div className="container max-w-7xl px-4 flex flex-wrap py-2 mx-auto">
         {/* BRAND */}
         <Link
           className="lg:hidden inline-flex p-2 text-orange-500 text-xl font-bold uppercase tracking-wider"
@@ -124,7 +124,7 @@ const Navbar = () => {
         {/* TOGGLER BUTTON */}
         {/* MENU */}
         <div className={menuClass}>
-          <ul className="w-full lg:w-auto flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2">
+          <ul className="w-full lg:w-auto flex flex-col lg:flex-row space-y-2 lg:space-y-0">
             {menuItems.map((menuItem) => (
               <NavbarItem
                 key={`menuItem id => ${menuItem.id}`}

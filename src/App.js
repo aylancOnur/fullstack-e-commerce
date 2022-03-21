@@ -8,11 +8,13 @@ import Product from "./pages/Product";
 import UserProfile from "./pages/UserProfile";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 
 const App = () => {
   const user = true;
   return (
     <BrowserRouter>
+    <Header />
     <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
