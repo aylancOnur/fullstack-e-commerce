@@ -9,6 +9,7 @@ import UserProfile from "./pages/UserProfile";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import MobileNavbar from "./components/MobileNavbar";
 
 const App = () => {
   const user = true;
@@ -16,6 +17,7 @@ const App = () => {
     <BrowserRouter>
     <Header />
     <Navbar />
+    <MobileNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
