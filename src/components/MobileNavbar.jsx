@@ -1,20 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {useState} from 'react'
+import { isDisabled } from '@testing-library/user-event/dist/utils'
+import {useState, useEffect} from 'react'
+import { useScrollDirection } from 'react-use-scroll-direction'
 
 function MobileNavbar() {
+	const [direction, setDirection] = useState(String)
+	const { isScrollingUp, isScrollingDown, isScrolling  } = useScrollDirection()
   const [activeIndex, setActiveIndex] = useState(0)
 
   const handleClick = (index) => {
     setActiveIndex(index)
-  }
+	}
+	
+	useEffect(() => {
+  isScrollingDown && setDirection('down')
+  isScrollingUp && setDirection('up')
+}, [isScrollingDown, isScrollingUp])
 
   return (
 // <!-- Navigation Bar -->
-			<div className="px-3 py-0 bg-white fixed bottom-0 left-0 right-0 z-50">
+		<div className={`${isScrollingDown || (direction==="down" && !isScrolling) ? "invisible opacity-0" : "visible opacity-100"} px-3 py-0 bg-white fixed bottom-0 left-0 right-0 z-50 transition-opacity duration-500`}>
 				<div className="flex flex-row justify-between">
 					{/* <!-- Item #1 --> */}
 					<div className="flex group" onClick={() => handleClick(0)}>
-          <a href="#" className={`px-3 py-1 ${activeIndex === 0 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500" } transition-all duration-200`}>
+          <a href="#" className={`px-3 py-1 ${activeIndex === 0 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500" } transition-colors duration-200`}>
 							<span className="flex flex-col items-center">
               {/* <!-- Icon --> */}
               <i className={`mdi ${activeIndex === 0 ? "mdi-home" : "mdi-home-outline"} mdi-24px mx-1`}></i>
@@ -28,7 +37,7 @@ function MobileNavbar() {
 
 					{/* <!-- Item #2 --> */}
 					<div className="flex group" onClick={() => handleClick(1)}>
-          <a href="#" className={`px-3 py-1 ${activeIndex === 1 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-all duration-200`}>
+          <a href="#" className={`px-3 py-1 ${activeIndex === 1 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-colors duration-200`}>
 							<span className="flex flex-col items-center">
 								{/* <!-- Icon --> */}
 								<i className={`mdi ${activeIndex === 1 ? "mdi-shape" : "mdi-shape-outline"} mdi-24px mx-1`}></i>
@@ -43,7 +52,7 @@ function MobileNavbar() {
 
 					{/* <!-- Item #3 Active --> */}
 					<div className="flex group" onClick={() => handleClick(2)}>
-						<a href="#" className={`px-3 py-1 ${activeIndex === 2 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-all duration-200`}>
+						<a href="#" className={`px-3 py-1 ${activeIndex === 2 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-colors duration-200`}>
 							<span className="flex flex-col items-center">
               {/* <!-- Icon --> */}
               {/* cart-outline */}
@@ -59,7 +68,7 @@ function MobileNavbar() {
 
 					{/* <!-- Item #4 --> */}
 					<div className="flex group" onClick={() => handleClick(3)}>
-						<a href="#" className={`px-3 py-1 ${activeIndex === 3 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-all duration-200`}>
+						<a href="#" className={`px-3 py-1 ${activeIndex === 3 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-colors duration-200`}>
 							<span className="flex flex-col items-center">
 								{/* <!-- Icon --> */}
 								<i className={`mdi ${activeIndex === 3 ? "mdi-heart-multiple" : "mdi-heart-multiple-outline"} mdi-24px mx-1`}></i>
@@ -74,7 +83,7 @@ function MobileNavbar() {
 
 					{/* <!-- Item #5 --> */}
 					<div className="flex group" onClick={() => handleClick(4)}>
-						<a href="#" className={`px-3 py-1 ${activeIndex === 4 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-all duration-200`}>
+						<a href="#" className={`px-3 py-1 ${activeIndex === 4 ? "text-orange-500 hover:text-orange-600" : "text-gray-400 hover:text-orange-500"} transition-colors duration-200`}>
 							<span className="flex flex-col items-center">
 								{/* <!-- Icon --> */}
 								<i className={`mdi ${activeIndex === 4 ? "mdi-account-circle" : "mdi-account-circle-outline"} mdi-24px mx-1`}></i>
