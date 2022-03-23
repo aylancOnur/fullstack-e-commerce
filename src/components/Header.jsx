@@ -101,7 +101,7 @@ const Header = () => {
             />
           </svg>
           <div className="mx-2 leading-3 cursor-pointer">
-            <p className="m-0 font-medium text-white">Sepetim</p>
+            <p className="m-0 font-medium text-white"><Link to="/cart">Sepetim</Link></p>
           </div>
         </div>
         {/* USER CART */}
