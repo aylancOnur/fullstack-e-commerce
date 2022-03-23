@@ -1,28 +1,35 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Cart from "./pages/Cart";
-import Favorites from "./pages/Favorites";
-import Orders from "./pages/Orders";
-import Products from "./pages/Products";
-import Product from "./pages/Product";
-import UserProfile from "./pages/UserProfile";
-import Login from "./pages/Login";
-import Navbar from "./components/Navbar";
+import {
+  Home,
+  Cart,
+  Favorites,
+  Orders,
+  Products,
+  Product,
+  UserProfile,
+  Login,
+  Categories,
+} from ".//pages/index";
+import { Navbar, MobileNavbar } from "./components/Navbar/index";
 import Header from "./components/Header";
-import MobileNavbar from "./components/MobileNavbar";
 
 const App = () => {
-  const user = true;
+  const user = false;
+  const isMobile = window.innerWidth < 821 ? true : false;
   return (
     <BrowserRouter>
-    <Header />
-    <Navbar />
-    <MobileNavbar />
+      <Header />
+      <Navbar />
+      <MobileNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/orders" element={<Orders />} />
+        <Route
+          path="/categories"
+          element={isMobile ? <Categories /> : <Navigate replace to="/" />}
+        />
         <Route path="/products/:category" element={<Products />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/userprofile" element={<UserProfile />} />

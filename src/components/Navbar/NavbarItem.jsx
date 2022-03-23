@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import DropdownMenuItem from "./DropdownMenuItem";
+import DropdownMenuItem from "../DropdownMenuItem";
 
 const NavbarItem = ({
   handleClick,

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import NavbarItem from "./NavbarItem";
+import Searchbar from "../Searchbar";
+import { NavbarItem } from "./index";
 
 const Navbar = () => {
   const [menuItems] = useState([
@@ -72,59 +73,69 @@ const Navbar = () => {
       to: "/",
     },
   ]);
-  const [menuOpen, setMenuOpen] = useState(true);
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(true);
   const [click, setClick] = useState();
   const handleClick = (dropdownMenuItemID) => {
     setClick(dropdownMenuItemID);
-    console.log("dropdownMenuItemID", dropdownMenuItemID);
-    console.log("click", click);
   };
-
-  const openMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const menuClass = menuOpen
-    ? "hidden w-full lg:w-auto lg:inline-flex mt-2 lg:mt-0"
-    : "w-full lg:w-auto lg:inline-flex mt-2 lg:mt-0";
 
   return (
     <nav className="bg-gray-100">
       {/* CONTAINER */}
       <div className="container max-w-7xl px-4 flex flex-wrap py-2 mx-auto">
-        {/* BRAND */}
-        <Link
-          className="lg:hidden inline-flex p-2 text-orange-500 text-xl font-bold uppercase tracking-wider"
-          to="/"
-        >
-          Hepsiburada
-        </Link>
-        {/* BRAND */}
-        {/* TOGGLER BUTTON */}
-        <button
-          onClick={openMenu}
-          className="lg:hidden inline-flex text-orange-500 items-center justify-center  border h-10 w-10 rounded-md outline-none focus:outline-none ml-auto"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-        {/* TOGGLER BUTTON */}
+        <div className="w-full">
+          <div className="lg:hidden flex justify-between items-center w-full mb-4">
+            {/* BRAND */}
+            <Link
+              className="inline-flex text-orange-500 text-xl font-bold tracking-wider"
+              to="/"
+            >
+              hepsiburada
+            </Link>
+            {/* BRAND */}
+            <div className="flex">
+              {/* BELL ICON */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />
+              </svg>
+              {/* BELL ICON */}
+              {/* USER ICON */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+              {/* USER ICON */}
+            </div>
+          </div>
+          <div className="lg:hidden">
+            {/* SEARCHBAR */}
+            <Searchbar />
+            {/* SEARCHBAR */}
+          </div>
+        </div>
         {/* MENU */}
-        <div className={menuClass}>
-          <ul className="w-full lg:w-auto flex flex-col lg:flex-row space-y-2 lg:space-y-0">
+          <ul className="hidden w-auto lg:flex flex-row  space-y-0">
             {menuItems.map((menuItem) => (
               <NavbarItem
                 key={`menuItem id => ${menuItem.id}`}
@@ -132,15 +143,14 @@ const Navbar = () => {
                 menuItem={menuItem}
                 active={
                   menuItem.id === click
-                    ? "bg-white lg:absolute left-0 top-20 p-2"
-                    : "hidden bg-white lg:absolute left-0 top-20 p-2"
+                    ? "bg-white lg:absolute left-0 top-16 p-2"
+                    : "hidden"
                 }
                 setDropdownMenuOpen={setDropdownMenuOpen}
                 dropdownMenuOpen={dropdownMenuOpen}
               />
             ))}
           </ul>
-        </div>
         {/* MENU */}
       </div>
       {/* CONTAINER */}
