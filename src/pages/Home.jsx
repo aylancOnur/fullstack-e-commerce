@@ -1,5 +1,6 @@
 import Carousel from "../components/Carousel";
 import ExploreCard from "../components/ExploreCard";
+import Footer from "../components/Footer/Footer";
 import OfferCard from "../components/OfferCard";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Carousel />
       <OfferCard />
       <ExploreCard />
+      <Footer />
     </div>
   );
 };
