@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useScrollDirection } from "react-use-scroll-direction";
 
 function MobileNavbar() {
@@ -29,8 +30,8 @@ function MobileNavbar() {
       <div className="flex flex-row justify-between">
         {/* <!-- Item #1 --> */}
         <div className="flex group" onClick={() => handleClick(0)}>
-          <a
-            href="#"
+          <Link
+            to="/"
             className={`px-3 py-1 ${
               activeIndex === 0
                 ? "text-orange-500 hover:text-orange-600"
@@ -47,13 +48,13 @@ function MobileNavbar() {
               {/* <!-- Text --> */}
               <span className="text-xs mb-1">Keşfet</span>
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* <!-- Item #2 --> */}
         <div className="flex group" onClick={() => handleClick(1)}>
-          <a
-            href="#"
+          <Link
+            to="/categories"
             className={`px-3 py-1 ${
               activeIndex === 1
                 ? "text-orange-500 hover:text-orange-600"
@@ -71,7 +72,7 @@ function MobileNavbar() {
               {/* <!-- Text --> */}
               <span className="text-xs mb-1">Kategoriler</span>
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* <!-- Item #3 Active --> */}

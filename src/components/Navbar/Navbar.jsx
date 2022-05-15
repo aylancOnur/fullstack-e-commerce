@@ -80,7 +80,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-100">
+    <nav className="bg-gray-100 sticky top-0 lg:static">
       {/* CONTAINER */}
       <div className="container max-w-7xl px-4 flex flex-wrap py-2 mx-auto">
         <div className="w-full">
